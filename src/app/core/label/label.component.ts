@@ -11,7 +11,7 @@ import { LabelService, Label } from './label.service';
 })
 export class LabelComponent implements OnInit {
 
-  labels: Label;
+  labels: Label[];
 
   constructor(private label: LabelService) { }
 

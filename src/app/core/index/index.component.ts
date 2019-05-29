@@ -8,7 +8,7 @@ import { IndexService, Issues } from './index.service';
 })
 export class IndexComponent implements OnInit {
 
-  issues: Issues;
+  issues: Issues[];
 
   constructor(
     private indexService: IndexService

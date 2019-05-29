@@ -8,7 +8,7 @@ import { ClassifyService, Classification } from './classify.service';
 })
 export class ClassifyComponent implements OnInit {
 
-  classifies: Classification;
+  classifies: Classification[];
 
   constructor(private classify: ClassifyService) { }
 

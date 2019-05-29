@@ -8,15 +8,15 @@ import { AuthService } from '../../http/auth.service';
 })
 export class IndexService {
 
-  issuesUrl = this.auth.getBaseUrl() + '/issues';
+  url = this.auth.getBaseUrl() + '/issues?labels=blog';
 
   constructor(
     private http: HttpClient,
     private auth: AuthService
   ) { }
 
-  getIssues(): Observable<Issues> {
-    return this.http.get<Issues>(this.issuesUrl);
+  getIssues(): Observable<Issues[]> {
+    return this.http.get<Issues[]>(this.url);
   }
 }
 

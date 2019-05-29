@@ -8,15 +8,15 @@ import { AuthService } from '../../http/auth.service';
 })
 export class ClassifyService {
 
-  classifyUrl = this.auth.getBaseUrl() + '/milestones';
+  url = this.auth.getBaseUrl() + '/milestones';
 
   constructor(
     private http: HttpClient,
     private auth: AuthService
   ) { }
 
-  getClassify(): Observable<Classification> {
-    return this.http.get<Classification>(this.classifyUrl);
+  getClassify(): Observable<Classification[]> {
+    return this.http.get<Classification[]>(this.url);
   }
 
 }

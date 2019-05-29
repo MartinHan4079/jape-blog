@@ -10,15 +10,15 @@ import { AuthService } from '../../http/auth.service';
 })
 export class LabelService {
 
-  labelUrl = this.auth.getBaseUrl() + '/labels';
+  url = this.auth.getBaseUrl() + '/labels';
 
   constructor(
     private http: HttpClient,
     private auth: AuthService
   ) { }
 
-  getLabels(): Observable<Label> {
-    return this.http.get<Label>(this.labelUrl);
+  getLabels(): Observable<Label[]> {
+    return this.http.get<Label[]>(this.url);
   }
 }
 
