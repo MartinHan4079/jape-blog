@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClassifyService, Classification } from './classify.service';
+
+import { JapeCoreService, Classification, Issues } from '../jape-core.service';
 
 @Component({
   selector: 'app-classify',
@@ -8,17 +9,24 @@ import { ClassifyService, Classification } from './classify.service';
 })
 export class ClassifyComponent implements OnInit {
 
-  classifies: Classification[];
+  classifyList: Classification[];
+  postList: Issues[];
 
-  constructor(private classify: ClassifyService) { }
+  constructor(private japeCore: JapeCoreService) { }
 
   ngOnInit() {
-    this.getClassifies();
+    this.getClassification();
   }
 
-  getClassifies() {
-    this.classify.getClassify()
-      .subscribe(classify => this.classifies = classify);
+  getClassification() {
+    this.japeCore.getClassification()
+      .subscribe(classify => this.classifyList = classify);
+  }
+
+
+  getPostList(title): void {
+    this.japeCore.getClassifyPostList(title)
+      .subscribe(post => this.postList = post);
   }
 
 }

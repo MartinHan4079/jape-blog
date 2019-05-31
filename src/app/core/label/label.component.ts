@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LabelService, Label } from './label.service';
-
-
+import { JapeCoreService, Label, Issues } from '../jape-core.service';
 
 @Component({
   selector: 'app-label',
@@ -12,16 +10,22 @@ import { LabelService, Label } from './label.service';
 export class LabelComponent implements OnInit {
 
   labels: Label[];
+  postList: Issues[];
 
-  constructor(private label: LabelService) { }
+  constructor(private japeCore: JapeCoreService) { }
 
   ngOnInit() {
     this.getLabels();
   }
 
   getLabels() {
-    this.label.getLabels()
+    this.japeCore.getLabels()
       .subscribe(label => this.labels = label);
+  }
+
+  getPostList(name): void {
+    this.japeCore.getLabelPostList(name)
+      .subscribe(post => this.postList = post);
   }
 
 }

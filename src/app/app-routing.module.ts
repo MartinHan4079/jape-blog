@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { ClassifyComponent } from './core/classify/classify.component';
 import { LabelComponent } from './core/label/label.component';
 import { AboutComponent } from './core/about/about.component';
+import { PostDetailComponent } from './core/post-detail/post-detail.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'post/:id',
-    component: AboutComponent,
+    component: PostDetailComponent,
   },
   { path: '**', component: PageNotFoundComponent }
 ];

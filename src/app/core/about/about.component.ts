@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AboutService, About } from './about.service';
+
+import { JapeCoreService, About } from '../jape-core.service';
+
+import marked from '../../config/marked';
 
 @Component({
   selector: 'app-about',
@@ -9,16 +12,19 @@ import { AboutService, About } from './about.service';
 export class AboutComponent implements OnInit {
 
   about: About;
+  post: string;
 
-  constructor(private aboutService: AboutService) { }
+  constructor(private japeCore: JapeCoreService) { }
 
   ngOnInit() {
     this.getAboutPost();
   }
 
   getAboutPost(): void {
-    this.aboutService.getAbout()
-      .subscribe(about => this.about = about);
+    this.japeCore.getAbout()
+    .subscribe(about => {
+      this.about = about;
+      this.post = marked(about.body);
+    });
   }
-
 }

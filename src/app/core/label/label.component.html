@@ -1,3 +1,12 @@
-<p>
-  label works!
-</p>
+<div id="labels">
+  <ul class="header">
+    <li *ngFor="let item of labels">
+      <a (click)="getPostList(item.name)">{{item.name}}</a>
+    </li>
+  </ul>
+  <ul class="article-list"> 
+    <li *ngFor="let item of postList">
+      <a routerLink="{{ '/post/' + item.number }}">{{item.title}}</a>
+    </li>
+  </ul>
+</div>

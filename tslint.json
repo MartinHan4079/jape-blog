@@ -32,6 +32,7 @@
       }
     ],
     "no-consecutive-blank-lines": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-console": [
       true,
       "debug",

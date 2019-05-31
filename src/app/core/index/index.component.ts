@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IndexService, Issues } from './index.service';
+
+import { JapeCoreService, Issues } from '../jape-core.service';
 
 @Component({
   selector: 'app-index',
@@ -8,10 +9,10 @@ import { IndexService, Issues } from './index.service';
 })
 export class IndexComponent implements OnInit {
 
-  issues: Issues[];
+  issuesList: Issues[];
 
   constructor(
-    private indexService: IndexService
+    private japeCore: JapeCoreService
   ) { }
 
   ngOnInit() {
@@ -19,6 +20,6 @@ export class IndexComponent implements OnInit {
   }
 
   getIssues() {
-    this.indexService.getIssues().subscribe(issues => this.issues = issues);
+    this.japeCore.getIssues().subscribe(issues => this.issuesList = issues);
   }
 }
