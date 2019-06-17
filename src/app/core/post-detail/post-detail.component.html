@@ -1,3 +1,11 @@
-<article [innerHTML]="article | sanitizeHtml">
+<div>
+    <div class="acticle-header">
+      <h3>{{ article.name }}</h3>
+      <div class="assist">
+        <span>{{ article.id }}</span>
+      </div>
+    </div>
+    <article [innerHTML]="content | sanitizeHtml"></article>
+</div>
 
-</article>
+

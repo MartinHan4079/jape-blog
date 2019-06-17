@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { JapeCoreService, About } from '../jape-core.service';
+import { JapeCoreService } from '../jape-core.service';
 
 import marked from '../../config/marked';
 
@@ -11,20 +11,12 @@ import marked from '../../config/marked';
 })
 export class AboutComponent implements OnInit {
 
-  about: About;
-  post: string;
+  post = '';
 
   constructor(private japeCore: JapeCoreService) { }
 
   ngOnInit() {
-    this.getAboutPost();
   }
 
-  getAboutPost(): void {
-    this.japeCore.getAbout()
-    .subscribe(about => {
-      this.about = about;
-      this.post = marked(about.body);
-    });
-  }
+
 }

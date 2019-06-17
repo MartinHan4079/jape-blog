@@ -23,14 +23,9 @@ const menuData = [
     icon: 'icon icon-home',
   },
   {
-    path: 'classify',
+    path: 'archives',
     title: '分类',
     icon: 'icon icon-classify',
-  },
-  {
-    path: 'label',
-    title: '标签',
-    icon: 'icon icon-label',
   },
   {
     path: 'about',

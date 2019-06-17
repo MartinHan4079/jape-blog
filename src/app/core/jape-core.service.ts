@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../http/auth.service';
 import { Observable } from 'rxjs';
 
@@ -13,93 +13,48 @@ export class JapeCoreService {
     private auth: AuthService
   ) { }
 
-  issuesUrl = this.auth.getBaseUrl() + '/issues?labels=blog';
-  classifyUrl = this.auth.getBaseUrl() + '/milestones';
-  labelUrl = this.auth.getBaseUrl() + '/labels';
-  aboutUrl = this.auth.getBaseUrl() + '/issues/9';
-
-  getIssues(): Observable<Issues[]> {
-    return this.http.get<Issues[]>(this.issuesUrl);
+  getContents(): Observable<any> {
+    const url = this.auth.getBaseUrl() + '/contents/blog';
+    return this.http.get<any>(url);
   }
 
-  getLabels(): Observable<Label[]> {
-    return this.http.get<Label[]>(this.labelUrl);
+  getPostDetail(name: string): Observable<Article> {
+    const url = this.auth.getBaseUrl() + '/contents/blog/' + name;
+    return this.http.get<Article>(url);
   }
-
-  getClassification(): Observable<Classification[]> {
-    return this.http.get<Classification[]>(this.classifyUrl);
-  }
-
-  getAbout(): Observable<About> {
-    return this.http.get<About>(this.aboutUrl);
-  }
-
-  getPostDetail(id: string): Observable<Issues> {
-    const url = this.auth.getBaseUrl() + '/issues/' + id;
-    return this.http.get<Issues>(url);
-  }
-
-  getLabelPostList(name: string): Observable<Issues[]> {
-    const url = this.auth.getBaseUrl() + '/issues?labels=' + name;
-    return this.http.get<Issues[]>(url);
-  }
-
-  getClassifyPostList(id: string): Observable<Issues[]> {
-    const url = this.auth.getBaseUrl() + '/issues?milestone=' + id;
-    return this.http.get<Issues[]>(url);
-  }
-
-
 }
 
-export class Label {
-  id: string;
-  color: string;
-  default: string;
+export class Article {
   name: string;
+  title: string;
+  path: string;
+  sha: string;
+  size: string;
+  type: string;
   url: string;
-  'node_id': string;
+  encoding: string;
+  content: string;
+  year: string;
+  month: string;
+  day: string;
+  'download_url': string;
+  'git_url': string;
+  'html_url': string;
 }
 
-export class Issues {
-  id: string;
+export class ArticleList {
+  name: string;
   title: string;
+  path: '';
+  sha: string;
+  year: string;
+  month: string;
+  day: string;
+  type: string;
   url: string;
-  'updated_at': string;
-  assignee: string;
-  body: string;
-  comments: string;
-  labels: object;
-  milestone: string;
-  'node_id': string;
-  number: string;
-  state: string;
-}
-
-export class Classification {
-  id: string;
-  title: string;
-  'node_id': string;
-  number: number;
-  'open_issues': number;
-  state: string;
-  'updated_at': string;
-  creator: object;
-}
-
-export class About {
-  id: string;
-  title: string;
-  url: string;
-  'updated_at': string;
-  assignee: string;
-  body: string;
-  comments: string;
-  labels: object;
-  milestone: string;
-  'node_id': string;
-  number: string;
-  state: string;
+  'html_url': string;
+  'git_url': string;
+  'download_url': string;
 }
 
 

@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from '../app-routing.module';
 
+import { SharedModule } from '../shared/shared.module';
+
 import { IndexComponent } from './index/index.component';
-import { ClassifyComponent } from './classify/classify.component';
-import { LabelComponent } from './label/label.component';
+import { ArchivesComponent } from './archives/archives.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
-
 @NgModule({
   declarations: [
     IndexComponent,
-    ClassifyComponent,
-    LabelComponent,
+    ArchivesComponent,
     AboutComponent,
     SanitizeHtmlPipe,
     PageNotFoundComponent,
@@ -24,15 +23,15 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   exports: [
     IndexComponent,
-    ClassifyComponent,
-    LabelComponent,
+    ArchivesComponent,
     AboutComponent,
     PageNotFoundComponent,
-    PostDetailComponent
+    PostDetailComponent,
   ]
 })
 export class CoreModule { }

@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
-import { JapeCoreService } from '../jape-core.service';
+import { JapeCoreService, ArticleList } from '../jape-core.service';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.sass']
+  selector: 'app-archives',
+  templateUrl: './archives.component.html',
+  styleUrls: ['./archives.component.sass']
 })
+export class ArchivesComponent implements OnInit {
 
-export class IndexComponent implements OnInit {
+  articleList: ArticleList;
 
-  articleList: [];
-
-  constructor(
-    private japeCore: JapeCoreService
-  ) { }
+  constructor(private japeCore: JapeCoreService) { }
 
   ngOnInit() {
     this.getContents();
@@ -33,4 +30,3 @@ export class IndexComponent implements OnInit {
   }
 
 }
-

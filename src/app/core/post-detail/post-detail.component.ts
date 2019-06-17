@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JapeCoreService, Issues } from '../jape-core.service';
+import { JapeCoreService, Article } from '../jape-core.service';
 import { ActivatedRoute } from '@angular/router';
 
 import marked from '../../config/marked';
@@ -11,8 +11,9 @@ import marked from '../../config/marked';
 })
 export class PostDetailComponent implements OnInit {
 
-  issues: Issues;
-  article: string;
+  article: Article;
+
+  content = '';
 
   constructor(
     private japeCore: JapeCoreService,
@@ -24,12 +25,16 @@ export class PostDetailComponent implements OnInit {
   }
 
   getPost() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.japeCore.getPostDetail(id)
-      .subscribe(issues => {
-        this.issues = issues;
-        this.article = marked(issues.body);
+    const name = this.route.snapshot.paramMap.get('name');
+    console.log(name);
+    this.japeCore.getPostDetail(name)
+      .subscribe(article => {
+        article.year = article.name.split('_')[0];
+        article.month = article.name.split('_')[1];
+        article.day = article.name.split('_')[2];
+        article.title = article.name.split('_')[3].replace(/.md/, '');
+        this.article = article;
+        this.content = marked(decodeURIComponent(escape(window.atob(article.content))));
       });
   }
-
 }
