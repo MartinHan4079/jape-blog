@@ -30,8 +30,7 @@ export class IndexComponent implements OnInit {
         element.day = element.name.split('_')[2];
         element.title = element.name.split('_')[3].replace(/.md/, '');
       });
-      this.articleList = list;
-      this.monthList = this.japeCore.getMonth(list);
+      this.articleList = list.slice(0, 8);
     });
   }
 }

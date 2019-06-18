@@ -1,12 +1,5 @@
 <div class="home-article">
-  <div *ngFor="let item of monthList">
-    <h3>{{item.year}}</h3>
-    <div *ngFor="let mon of item?.children">
-      <h6>{{mon}}</h6>
-      <a *ngFor="let article of articleList">
-        <span *ngIf="item.year === article.year && mon === article.month">{{article.day}}.</span>
-        <span *ngIf="item.year === article.year && mon === article.month">{{article.title}}</span>
-      </a>
-    </div>
-  </div>
+  <a *ngFor="let article of articleList">
+    <span>{{article.title}}</span>
+  </a>
 </div>
