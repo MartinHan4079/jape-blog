@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { JapeCoreService } from '../jape-core.service';
+import { JapeCoreService, ArticleList } from '../jape-core.service';
 
 @Component({
   selector: 'app-index',
@@ -10,7 +10,9 @@ import { JapeCoreService } from '../jape-core.service';
 
 export class IndexComponent implements OnInit {
 
-  articleList: [];
+  articleList: Array<ArticleList>;
+
+  monthList: string[];
 
   constructor(
     private japeCore: JapeCoreService
@@ -28,9 +30,9 @@ export class IndexComponent implements OnInit {
         element.day = element.name.split('_')[2];
         element.title = element.name.split('_')[3].replace(/.md/, '');
       });
-      this.articleList = list.slice(8);
+      this.articleList = list;
+      this.monthList = this.japeCore.getMonth(list);
     });
   }
-
 }
 

@@ -1,6 +1,12 @@
 <div class="home-article">
-  <a *ngFor="let item of articleList" routerLink="{{ '/article/' + item.name }}">
-    <span>{{ item.year + '年' + item.month + '月'+ item.day + "日" }} </span>
-    <span>{{item.title}}</span>
-  </a>
+  <div *ngFor="let item of monthList">
+    <h3>{{item.year}}</h3>
+    <div *ngFor="let mon of item?.children">
+      <h6>{{mon}}</h6>
+      <a *ngFor="let article of articleList">
+        <span *ngIf="item.year === article.year && mon === article.month">{{article.day}}.</span>
+        <span *ngIf="item.year === article.year && mon === article.month">{{article.title}}</span>
+      </a>
+    </div>
+  </div>
 </div>

@@ -26,7 +26,6 @@ export class PostDetailComponent implements OnInit {
 
   getPost() {
     const name = this.route.snapshot.paramMap.get('name');
-    console.log(name);
     this.japeCore.getPostDetail(name)
       .subscribe(article => {
         article.year = article.name.split('_')[0];
