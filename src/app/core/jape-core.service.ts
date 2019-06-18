@@ -63,7 +63,7 @@ function compare(property) {
   return (a, b) => {
       const value1 = a[property];
       const value2 = b[property];
-      return value1 - value2;
+      return value2 - value1;
   };
 }
 
