@@ -7,7 +7,7 @@
     <div class="month-box" *ngFor="let mon of item?.children">
       <h6>{{mon}}月</h6>
       <div class="article" *ngFor="let article of articleList">
-          <a *ngIf="item.year === article.year && mon === article.month" routerLink="{{ '/article/' + article.name }}">
+          <a *ngIf="item.year === article.year && mon === article.month" routerLink="{{ '/article/' + article.sha }}">
             <span>{{article.day}}日 </span> 
             <span>{{article.title}}</span>
           </a>

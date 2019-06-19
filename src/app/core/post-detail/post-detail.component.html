@@ -1,10 +1,4 @@
 <div class="acticle">
-    <div class="acticle-header">
-      <h3>{{ article?.title }}</h3>
-      <div class="assist">
-        <span>{{ article?.year + '年' + article?.month + '月'+ article?.day + "日" }} </span>
-      </div>
-    </div>
     <article [innerHTML]="content | sanitizeHtml"></article>
 </div>
 

@@ -24,11 +24,10 @@ export class JapeCoreService {
     return this.http.get<any>(url);
   }
 
-  getPostDetail(name: string): Observable<Article> {
-    const url = this.auth.getBaseUrl() + '/contents/blog/' + name;
+  getPostDetail(sha: string): Observable<Article> {
+    const url = this.auth.getBaseUrl() + '/git/blobs/' + sha;
     return this.http.get<Article>(url);
   }
-
 
   searchPost(name: string): Array<ArticleList> {
     const searchResult =  this.articleList.filter(element => element.name.indexOf(name) !== -1);
@@ -80,26 +79,18 @@ function compare(property) {
 }
 
 export class Article {
-  name: string;
-  title: string;
-  path: string;
   sha: string;
   size: string;
-  type: string;
-  url: string;
   encoding: string;
+  url: string;
   content: string;
-  year: string;
-  month: string;
-  day: string;
-  'download_url': string;
-  'git_url': string;
-  'html_url': string;
+  'node_id': string;
 }
 
 export class ArticleList {
   name: string;
   title: string;
+  lock: boolean;
   path: '';
   sha: string;
   year: string;

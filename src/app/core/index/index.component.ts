@@ -30,14 +30,17 @@ export class IndexComponent implements OnInit {
   getContents() {
     this.japeCore.getContents().subscribe(list => {
       list.forEach(element => {
-        element.year = element.name.split('_')[0];
-        element.month = element.name.split('_')[1];
-        element.day = element.name.split('_')[2];
-        element.title = element.name.split('_')[3].replace(/.md/, '');
+        element.year = element.name.split('-')[0];
+        element.month = element.name.split('-')[1];
+        element.day = element.name.split('-')[2];
+        element.title = element.name.split('-')[3];
+        element.lock = (element.name.split('-')[4] && element.name.split('-')[4] === 'lock') ? true : false;
       });
-      this.articleList = list;
-      this.japeCore.setArticleList(list);
-      this.monthList = this.japeCore.getMonth(list);
+      console.log(list);
+      const listMid = list.filter(ele => ele.lock === false);
+      this.articleList = listMid;
+      this.japeCore.setArticleList(listMid);
+      this.monthList = this.japeCore.getMonth(listMid);
     });
   }
 }

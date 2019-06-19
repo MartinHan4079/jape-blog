@@ -25,14 +25,9 @@ export class PostDetailComponent implements OnInit {
   }
 
   getPost() {
-    const name = this.route.snapshot.paramMap.get('name');
-    this.japeCore.getPostDetail(name)
+    const sha = this.route.snapshot.paramMap.get('sha');
+    this.japeCore.getPostDetail(sha)
       .subscribe(article => {
-        article.year = article.name.split('_')[0];
-        article.month = article.name.split('_')[1];
-        article.day = article.name.split('_')[2];
-        article.title = article.name.split('_')[3].replace(/.md/, '');
-        this.article = article;
         this.content = marked(decodeURIComponent(escape(window.atob(article.content))));
       });
   }

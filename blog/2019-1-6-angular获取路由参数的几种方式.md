@@ -1,8 +1,10 @@
+## angular获取路由参数的几种方式
+
 在实际项目中，经常需要用到的获取路由参数，angular的路由提供了`ActivatedRoute`、`ActivatedRouteSnapshot`、`Route`等接口,用来获取路由元信息
 
 
 ### `ActivatedRoute` 包含与当前组件相关的路由信息。也可以用于遍历路由器的状态树。
-* 官网给的例子
+官网给的例子
 ```ts
 @Component({...})
 class MyComponent {
@@ -46,7 +48,7 @@ export class PostComponent implements OnInit {
 ```
 
 ### `ActivatedRouteSnapshot` 官网说是包含与当前组件相关的路由的当前瞬间信息，也可以用来遍历路由器的状态树，是当前组件路由的快照。
-* 官网给的说明
+官网给的说明
 ```ts
 @Component({templateUrl:'./my-component.html'})
 class MyComponent {

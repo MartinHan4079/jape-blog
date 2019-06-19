@@ -1,5 +1,5 @@
-### `instanceof`
-* 用于识别正在处理的队形的类型，instanceof方法要开发者明确的确认对象为某特定类型。
+## javascript `instanceof`
+用于识别正在处理的队形的类型，instanceof方法要开发者明确的确认对象为某特定类型。
 ```javascript
     function Car(make,model,year) {
         this.make = make;
