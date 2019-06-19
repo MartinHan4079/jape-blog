@@ -22,6 +22,11 @@ export class IndexComponent implements OnInit {
     this.getContents();
   }
 
+  onEnter(value: string) {
+    this.articleList = this.japeCore.searchPost(value);
+    this.monthList = this.japeCore.getMonth(this.articleList);
+  }
+
   getContents() {
     this.japeCore.getContents().subscribe(list => {
       list.forEach(element => {
@@ -30,7 +35,9 @@ export class IndexComponent implements OnInit {
         element.day = element.name.split('_')[2];
         element.title = element.name.split('_')[3].replace(/.md/, '');
       });
-      this.articleList = list.slice(0, 8);
+      this.articleList = list;
+      this.japeCore.setArticleList(list);
+      this.monthList = this.japeCore.getMonth(list);
     });
   }
 }

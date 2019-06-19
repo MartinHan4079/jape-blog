@@ -23,11 +23,6 @@ const menuData = [
     icon: 'icon icon-home',
   },
   {
-    path: 'archives',
-    title: '分类',
-    icon: 'icon icon-classify',
-  },
-  {
     path: 'about',
     title: '关于',
     icon: 'icon icon-about',

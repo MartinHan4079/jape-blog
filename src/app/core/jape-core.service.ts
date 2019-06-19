@@ -8,10 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class JapeCoreService {
 
+  articleList: Array<ArticleList>;
+
   constructor(
     private http: HttpClient,
     private auth: AuthService
   ) { }
+
+  setArticleList(list: Array<ArticleList>) {
+    this.articleList = list;
+  }
 
   getContents(): Observable<any> {
     const url = this.auth.getBaseUrl() + '/contents/blog';
@@ -21,6 +27,12 @@ export class JapeCoreService {
   getPostDetail(name: string): Observable<Article> {
     const url = this.auth.getBaseUrl() + '/contents/blog/' + name;
     return this.http.get<Article>(url);
+  }
+
+
+  searchPost(name: string): Array<ArticleList> {
+    const searchResult =  this.articleList.filter(element => element.name.indexOf(name) !== -1);
+    return searchResult;
   }
 
 
