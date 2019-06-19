@@ -1,6 +1,6 @@
 <div class="home-article">
   <div class="search-form">
-    <input #search (keyup.enter)="onEnter(search.value)" placeholder="搜索..."  type="text" />
+    <input #search (keyup.enter)="onEnter(search.value)" placeholder="搜索笔记、吐槽"  type="text" />
   </div>
   <div class="year-box" *ngFor="let item of monthList">
     <h3>{{item.year}}年</h3>
@@ -8,7 +8,7 @@
       <h6>{{mon}}月</h6>
       <div class="article" *ngFor="let article of articleList">
           <a *ngIf="item.year === article.year && mon === article.month" routerLink="{{ '/article/' + article.sha }}">
-            <span>{{article.day}}日 </span> 
+            <span>{{article.day}}日 </span>
             <span>{{article.title}}</span>
           </a>
         </div>

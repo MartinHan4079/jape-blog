@@ -30,11 +30,12 @@ export class IndexComponent implements OnInit {
   getContents() {
     this.japeCore.getContents().subscribe(list => {
       list.forEach(element => {
-        element.year = element.name.split('-')[0];
-        element.month = element.name.split('-')[1];
-        element.day = element.name.split('-')[2];
-        element.title = element.name.split('-')[4].replace(/.md/, '');
-        element.lock = (element.name.split('-')[5] && element.name.split('-')[5].replace(/.md/, '') === 'lock') ? true : false;
+        const mid = element.name.split('-');
+        element.year = mid[0];
+        element.month = mid[1];
+        element.day = mid[2];
+        element.title = mid[4].replace(/.md/, '');
+        element.lock = (mid[4] && mid[4].replace(/.md/, '') === 'lock') ? true : false;
       });
       const listMid = list.filter(ele => ele.lock === false);
       this.articleList = listMid;
