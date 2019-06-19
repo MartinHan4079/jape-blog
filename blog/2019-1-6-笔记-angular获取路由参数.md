@@ -1,4 +1,4 @@
-## angular获取路由参数的几种方式
+### angular获取路由参数
 
 在实际项目中，经常需要用到的获取路由参数，angular的路由提供了`ActivatedRoute`、`ActivatedRouteSnapshot`、`Route`等接口,用来获取路由元信息
 

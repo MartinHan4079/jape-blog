@@ -33,8 +33,8 @@ export class IndexComponent implements OnInit {
         element.year = element.name.split('-')[0];
         element.month = element.name.split('-')[1];
         element.day = element.name.split('-')[2];
-        element.title = element.name.split('-')[3].replace(/.md/, '');
-        element.lock = (element.name.split('-')[4] && element.name.split('-')[4].replace(/.md/, '') === 'lock') ? true : false;
+        element.title = element.name.split('-')[4].replace(/.md/, '');
+        element.lock = (element.name.split('-')[5] && element.name.split('-')[5].replace(/.md/, '') === 'lock') ? true : false;
       });
       const listMid = list.filter(ele => ele.lock === false);
       this.articleList = listMid;
