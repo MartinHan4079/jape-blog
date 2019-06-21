@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './core/index/index.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { AboutComponent } from './core/about/about.component';
+import { FriendComponent } from './core/friend/friend.component';
 import { PostDetailComponent } from './core/post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'frient', component: FriendComponent },
   { path: 'article/:sha', component: PostDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -23,6 +23,11 @@ const menuData = [
     icon: 'icon icon-home',
   },
   {
+    path: 'frient',
+    title: '友链',
+    icon: 'icon icon-love',
+  },
+  {
     path: 'about',
     title: '关于',
     icon: 'icon icon-about',

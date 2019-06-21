@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { FriendComponent } from './friend/friend.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     AboutComponent,
     SanitizeHtmlPipe,
     PageNotFoundComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    FriendComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     AboutComponent,
     PageNotFoundComponent,
     PostDetailComponent,
+    FriendComponent
   ]
 })
 export class CoreModule { }
