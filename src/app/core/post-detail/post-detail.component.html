@@ -1,4 +1,11 @@
 <div class="acticle">
+    <div class="label">
+        <ul>
+            <li *ngFor="let item of label">
+                <a href="{{ locationUrl +  '#' + item }}">{{item}}</a>
+            </li>
+        </ul>
+    </div>
     <article [innerHTML]="content | sanitizeHtml"></article>
 </div>
 
