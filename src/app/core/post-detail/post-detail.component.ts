@@ -39,7 +39,7 @@ export class PostDetailComponent implements OnInit {
         const label = [];
         if (list) {
           list.forEach(ele => {
-            label.push(ele.match(/\"([\S\s]*?)\"/ig)[0].replace(/"/, ''));
+            label.push(ele.match(/\"([\S\s]*?)\"/ig)[0].replace(/"/g, ''));
           });
         }
         this.label = label;
