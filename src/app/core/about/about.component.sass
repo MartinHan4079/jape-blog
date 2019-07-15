@@ -17,3 +17,90 @@
         &:hover
           padding-left: 15px;
           color: red;
+  .message
+    margin-top: 15px;
+    h3
+      text-align: center;
+    form
+      width: 100%;
+      overflow: hidden;
+      label
+        width: 100%;
+        display: block;
+        margin-bottom: 15px;
+        input
+          padding: 0.75rem 0.75rem;
+          width: 100%;
+          border-radius: 8px;
+          border: none;
+          background: rgba(212, 149, 149, 0.1);
+          box-shadow: 1px 2px 3px rgba(42,42,42,.1);
+          outline: none;
+        textarea
+          width: 100%;
+          border-radius: 8px;
+          padding: 0.75rem 0.75rem;
+          border: none;
+          background: rgba(212, 149, 149, 0.1);
+          box-shadow: 1px 2px 3px rgba(42,42,42,.1);
+          outline: none;
+        button
+          width: 100%;
+          padding: 0.75rem;
+          background: #6cd2b9;
+          color: #fff;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          border-radius: 8px;
+          letter-spacing: 1rem;
+          font-size: 0.81rem;
+          overflow: hidden;
+        &.warning
+          border: 1px solid red;
+          color: red;
+  .message-detail
+    padding: 15px;
+    position: fixed;
+    top: 180px;
+    font-size: 0.9rem;
+    left: 0px;
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+    background: rgba(212, 149, 149, 0.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    border-radius: 5px;
+    .message-item
+      width: 100%;
+      border-bottom: 1px dashed #aaa;
+      padding: 0.5rem 0.3rem;
+      .title 
+        margin-bottom: 5px;
+        border-bottom: 1px solid #bbb;
+      .message-content
+        background: #fff;
+        padding-left: 5px;
+        border-radius: 5px;
+
+@media screen and (max-width: 700px)
+  .message-detail
+    padding: 15px;
+    position: static!important;
+    top: 0px;
+    font-size: 0.9rem;
+    left: 0px;
+    height: auto;
+    background: rgba(212, 149, 149, 0.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    border-radius: 5px;
+    .message-item
+      width: 100%;
+      border-bottom: 1px dashed #aaa;
+      padding: 0.5rem 0.3rem;
+      .title 
+        margin-bottom: 5px;
+        border-bottom: 1px solid #bbb;
+      .message-content
+        background: #fff;
+        padding-left: 5px;
+        border-radius: 5px;

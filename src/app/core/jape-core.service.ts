@@ -12,7 +12,7 @@ export class JapeCoreService {
 
   constructor(
     private http: HttpClient,
-    private auth: AuthService
+    private auth: AuthService,
   ) { }
 
   setArticleList(list: Array<ArticleList>) {
@@ -27,6 +27,16 @@ export class JapeCoreService {
   getPostDetail(sha: string): Observable<Article> {
     const url = this.auth.getBaseUrl() + '/git/blobs/' + sha;
     return this.http.get<Article>(url);
+  }
+
+  setComments(body: object): Observable<Comments> {
+    const url = this.auth.getBaseUrl() + '/issues/1/comments';
+    return this.http.post<Comments>(url, body);
+  }
+
+  getComments(): Observable<Array<Comments>> {
+    const url = this.auth.getBaseUrl() + '/issues/1/comments';
+    return this.http.get<Array<Comments>>(url);
   }
 
   searchPost(name: string): Array<ArticleList> {
@@ -101,6 +111,16 @@ export class ArticleList {
   'html_url': string;
   'git_url': string;
   'download_url': string;
+}
+
+
+export class Comments {
+  'created_at': number;
+  user: string;
+  body: string;
+  url: string;
+  'noed_id': string;
+  'html_url': string;
 }
 
 

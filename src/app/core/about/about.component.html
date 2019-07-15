@@ -7,5 +7,33 @@
         </a>
     </li>
     </ul>
+
+    <div class="message">
+      <h3>留言栏</h3>
+      <form [formGroup]="checkoutForm">
+        <label for="name" [class.warning]="warning">
+          <input formControlName="name" id="name" type="text" placeholder="昵称">
+        </label>
+        <label for="email" [class.warning]="warning">
+          <input formControlName="email" id="email" type="email" placeholder="邮箱">
+        </label>
+        <label for="message" [class.warning]="warning">
+          <textarea formControlName="message" name="message" id="message" cols="30" rows="10" placeholder="留言"></textarea>
+        </label>
+        <label for="submit">
+            <button (click)="submit($event,checkoutForm.value)" class="submit">留言</button>
+        </label>
+      </form>
+    </div>
+
+
+    <div class="message-detail">
+      <div class="message-item" *ngFor="let item of comments">
+        <div class="title">昵称:{{item.name}} &nbsp;&nbsp;&nbsp;&nbsp;邮箱:{{item.email}}</div>
+        <div class="message-content">
+          {{item.message}}
+        </div>
+      </div>
+    </div>
   </article>
   

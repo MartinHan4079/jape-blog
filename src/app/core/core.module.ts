@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -23,6 +24,8 @@ import { FriendComponent } from './friend/friend.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule
   ],
