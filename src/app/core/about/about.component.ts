@@ -65,11 +65,12 @@ export class AboutComponent implements OnInit {
       alert('留言不能为空');
       return;
     }
-    const body = {
-      body: checkoutForm.name + '#' + checkoutForm.email + '#' + checkoutForm.message
+    const params = {
+      content: checkoutForm.name + '#' + checkoutForm.email + '#' + checkoutForm.message,
+      encoding: 'utf-8'
     };
 
-    this.japeCore.setComments(body).subscribe(comment => {
+    this.japeCore.setPostDetail(params).subscribe(comment => {
       this.getComments();
       this.checkoutForm.reset();
     });

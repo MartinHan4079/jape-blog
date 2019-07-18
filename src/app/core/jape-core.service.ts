@@ -29,6 +29,11 @@ export class JapeCoreService {
     return this.http.get<Article>(url);
   }
 
+  setPostDetail(params: object): Observable<Article> {
+    const url = this.auth.getBaseUrl() + '/git/blobs/';
+    return this.http.post<Article>(url, params);
+  }
+
   setComments(body: object): Observable<Comments> {
     const url = this.auth.getBaseUrl() + '/issues/1/comments';
     return this.http.post<Comments>(url, body);
