@@ -9,5 +9,4 @@ export class NoopInterceptor implements HttpInterceptor {
     Observable<HttpEvent<any>> {
       return next.handle(req);
     }
-
 }
